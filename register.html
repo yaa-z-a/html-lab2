@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>用户注册页面</h1>
+</header>
+
+<main>
+    <h3>注册注意事项</h3>
+    <ul>
+        <li>用户名不能含有特殊符号</li>
+        <li>密码长度6‑16位</li>
+        <li>手机号必须填写11位数字</li>
+    </ul>
+
+    <h3>注册步骤</h3>
+    <ol>
+        <li>填写全部带*必填项</li>
+        <li>选择个人爱好与城市</li>
+        <li>阅读注册须知</li>
+        <li>点击注册提交表单</li>
+    </ol>
+
+    <h3>常见问题</h3>
+    <dl>
+        <dt>收不到邮箱验证码？</dt>
+        <dd>请检查垃圾邮件箱</dd>
+        <dt>手机号格式报错？</dt>
+        <dd>必须输入完整11位纯数字</dd>
+    </dl>
+
+    <h3>注册须知表格</h3>
+    <table>
+        <thead>
+            <tr>
+                <th colspan="3">用户注册须知（合并3列）</th>
+            </tr>
+            <tr>
+                <th>项目</th>
+                <th>要求</th>
+                <th>备注</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>用户名</td>
+                <td>必填</td>
+                <td>2‑12字符</td>
+            </tr>
+            <tr>
+                <td>邮箱</td>
+                <td>必填</td>
+                <td>用于找回密码</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form id="regForm" action="#" method="post">
+        <p>
+            <label for="username">用户名*：</label>
+            <input type="text" name="username" id="username" required>
+        </p>
+
+        <p>
+            <label for="password">密码：</label>
+            <input type="password" name="password" id="password" placeholder="6‑16位字符">
+        </p>
+
+        <p>
+            <label for="confirmPassword">确认密码：</label>
+            <input type="password" name="confirmPassword" id="confirmPassword">
+        </p>
+
+        <p>
+            性别：
+            <input type="radio" name="gender" id="male" value="male">
+            <label for="male">男</label>
+
+            <label>
+                <input type="radio" name="gender" value="female">女
+            </label>
+        </p>
+
+        <p>
+            <label for="birthday">出生日期：</label>
+            <input type="date" name="birthday" id="birthday">
+        </p>
+
+        <p>
+            <label for="email">邮箱*：</label>
+            <input type="email" name="email" id="email" required>
+        </p>
+
+        <p>
+            <label for="phone">手机号：</label>
+            <input type="tel" name="phone" id="phone" pattern="[0-9]{11}" placeholder="11位手机号">
+        </p>
+
+        <p>
+            兴趣爱好：
+            <input type="checkbox" name="hobby" value="reading" id="h1">
+            <label for="h1">阅读</label>
+            <input type="checkbox" name="hobby" value="sport" id="h2">
+            <label for="h2">运动</label>
+            <input type="checkbox" name="hobby" value="game" id="h3">
+            <label for="h3">游戏</label>
+        </p>
+
+        <p>
+            <label for="avatar">上传头像：</label>
+            <input type="file" name="avatar" id="avatar" accept="image/*" multiple>
+        </p>
+
+        <p>
+            <label for="city">所在城市：</label>
+            <select name="city" id="city">
+                <option value="changde" selected>常德</option>
+                <option value="changsha">长沙</option>
+                <option value="wuhan">武汉</option>
+            </select>
+        </p>
+
+        <p>
+            <label for="bio">个人简介：</label><br>
+            <textarea name="bio" id="bio" rows="4" cols="50"></textarea>
+        </p>
+
+        <p>
+            <button type="submit">注册</button>
+            <button type="reset">重置</button>
+        </p>
+    </form>
+</main>
+
+<footer>
+    <p>©2026 版权所有 用户注册演示</p>
+</footer>
+
+<script>
+    const form = document.getElementById('regForm');
+    form.addEventListener('submit',function(e){
+        e.preventDefault();
+        const formData = new FormData(form);
+        console.log("=====表单提交的数据=====");
+        for(let [key,val] of formData){
+            console.log(key,":",val);
+        }
+    })
+</script>
+</body>
+</html>
